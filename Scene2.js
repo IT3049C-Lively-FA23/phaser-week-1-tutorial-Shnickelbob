@@ -76,7 +76,7 @@ class Scene2 extends Phaser.Scene {
             powerUp.setBounce(1);
         }
 
-        this.player = this.physics.add.sprite(conig.width / 2 - 8, config.height - 64, "player");
+        this.player = this.physics.add.sprite(config.width / 2 - 8, config.height - 64, "player");
         this.player.play("thrust");
         this.cursorKeys = this.input.keyboard.createCursorKeys();
         this.player.setCollideWorldBounds(true);
@@ -97,7 +97,7 @@ class Scene2 extends Phaser.Scene {
 
     hurtPlayer(player, enemy) {
         this.resetShipPos(enemy);
-        if(this.player.aplha < 1){
+        if(this.player.alpha < 1){
             return;
         }
         var explosion = new Explosion(this, player.x, player.y);
@@ -111,8 +111,8 @@ class Scene2 extends Phaser.Scene {
         });
     }
     resetPlayer(){
-        player.x = config.width / 2 - 8;
-        player.y = config.height - 64;
+        var x = config.width / 2 - 8;
+        var y = config.height - 64;
         this.player.enableBody(true, x, y, true, true);
 
         this.player.alpha = 0.5;
@@ -123,7 +123,7 @@ class Scene2 extends Phaser.Scene {
             ease: 'Power1',
             duration: 1500,
             repeat: 0,
-            OnComplete: function(){
+            onComplete: function(){
                 this.player.alpha = 1;
             },
             callbackScope: this
@@ -161,7 +161,7 @@ class Scene2 extends Phaser.Scene {
         var randomX = Phaser.Math.Between(0, config.width);
         ship.x = randomX;
     }
-    destoryShip(pointer, gameObject) {
+    destroyShip(pointer, gameObject) {
         gameObject.setTexture("explosion");
         gameObject.play("explode");
     }
@@ -192,6 +192,9 @@ class Scene2 extends Phaser.Scene {
     }
 
     movePlayerManager(){
+
+        this.player.setVelocity(0);
+
         if(this.cursorKeys.left.isDown){
             this.player.setVelocityX(-gameSettings.playerSpeed);
         }else if(this.cursorKeys.right.isDown){

@@ -29,15 +29,15 @@ class Scene1 extends Phaser.Scene {
             frameWidth: 16,
             frameHeight: 24
         })
-        this.load.spritesheet("beam", "assets/spritesheets/player.png", {
+        this.load.spritesheet("beam", "assets/spritesheets/beam.png", {
             frameWidth: 16,
             frameHeight: 16
         });
         this.load.bitmapFont("pixelFont", "assets/font/font.png", "assets/font/font.xml");
-        this.load.audio("audio_beam", ["assets/souns/beam.ogg", "assets/sounds/beam.mp3"]);
-        this.load.audio("audio_explosion", ["assets/souns/explosion.ogg", "assets/sounds/explosion.mp3"]);
-        this.load.audio("audio_pickup", ["assets/souns/pickup.ogg", "assets/sounds/pickup.mp3"]);
-        this.load.audio("audio_music", ["assets/souns/sci-fi_platformer12.ogg", "assets/sounds/sci-fi_platformer12.mp3"]);
+        this.load.audio("audio_beam", ["assets/sounds/beam.ogg", "assets/sounds/beam.mp3"]);
+        this.load.audio("audio_explosion", ["assets/sounds/explosion.ogg", "assets/sounds/explosion.mp3"]);
+        this.load.audio("audio_pickup", ["assets/sounds/pickup.ogg", "assets/sounds/pickup.mp3"]);
+        this.load.audio("music", ["assets/sounds/sci-fi_platformer12.ogg", "assets/sounds/sci-fi_platformer12.mp3"]);
     }
 
 
